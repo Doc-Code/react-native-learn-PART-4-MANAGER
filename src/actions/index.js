@@ -24,6 +24,13 @@ export const loginUser = ({ email, password }) => {
   return (dispatch) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(user => loginUserSuccess(dispatch, user))
+/**
+включаем режим отладки, для этого вносим в .catch ((ERROR)
+а затем выводим в консоль
+
+.catch((error) => {
+ console.log(error);
+**/
       .catch(() => {
         firebase.auth().createUserWithEmailAndPassword(email,password)
         .then(user => loginUserSuccess(dispatch, user))
