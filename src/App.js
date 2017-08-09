@@ -8,7 +8,7 @@ import reducers from './reducers';
 import LoginForm from './components/LoginForm';
 
 class App extends Component {
-  componentWillAmount() {
+  componentWillMount() {
     const config = {
   apiKey: 'AIzaSyCFn5yyIhIdnflc5x2-Z3OOVqJgeptRRco',
   authDomain: 'manager-dae7a.firebaseapp.com',
@@ -19,12 +19,12 @@ class App extends Component {
 };
 
 firebase.initializeApp(config);
-
 }
+
   render() {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
-    return(
+    return (
       <Provider store={store}>
         <LoginForm />
       </Provider>
