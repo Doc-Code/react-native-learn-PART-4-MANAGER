@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView, View, Text } from 'react-native';
@@ -28,8 +29,10 @@ createDataSource({ employees }) {
 
 
   render() {
+    console.log(this.props);
+
     return (
-      <ListView>
+      <View>
         <Text>Employee List</Text>
         <Text>Employee List</Text>
         <Text>Employee List</Text>
@@ -38,9 +41,17 @@ createDataSource({ employees }) {
         <Text>Employee List</Text>
         <Text>Employee List</Text>
         <Text>Employee List</Text>
-      </ListView>
+      </View>
     );
   }
 }
 
-export default connect(null, { employeesFetch })(EmployeeList);
+const mapStateToProps = state => {
+const employees = _.map(state.employees, (val, uid) => {
+return { ...val, uid }; // {shift: 'mday', name: 'S', id: 'as4s'};
+});
+
+return { employees };
+};
+
+export default connect(mapStateToProps, { employeesFetch })(EmployeeList);
