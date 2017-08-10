@@ -34,4 +34,4 @@ titleStyle: {
 }
 };
 
-export default ListItem
+export default ListItem;
