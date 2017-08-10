@@ -36,7 +36,7 @@ dispatch({ type: LOGIN_USER });
  console.log(error);
 **/
       .catch(() => {
-        firebase.auth().createUserWithEmailAndPassword(email,password)
+        firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(user => loginUserSuccess(dispatch, user))
         .catch(() => loginUserFail(dispatch));
       });
