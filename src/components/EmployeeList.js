@@ -7,16 +7,25 @@ class EmployeeList extends Component {
   componentWillMount() {
     this.props.employeesFetch();
 
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
-
-    this.dataSource = ds.cloneWithRows(this.props.employees);
+    this.createDataSource(this.props);
   }
 
 componentWillReceiveProps(nextProps) {
-//nextProps ate the text
+//nextProps ate the text set of props that this component
+// will be rendered with
+// this.props os still the old set of props
+
+this.createDataSource(nextProps);
 }
+
+createDataSource({ employees }) {
+  const ds = new ListView.DataSource({
+    rowHasChanged: (r1, r2) => r1 !== r2
+  });
+
+  this.dataSource = ds.cloneWithRows(employees);
+}
+
 
   render() {
     return (
