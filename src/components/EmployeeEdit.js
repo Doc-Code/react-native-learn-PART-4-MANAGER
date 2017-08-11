@@ -20,9 +20,9 @@ onButtonPress() {
 }
 
 onTextPress() {
-  const { phone, shift } = this.props;
+  const { name, phone, shift } = this.props;
 
-  Communications.text(phone, `Your upcoming shift is on ${shift}`);
+  Communications.text(phone, `${name} Ваша смена в(о) ${shift}`);
 }
 
   render() {
@@ -38,7 +38,7 @@ onTextPress() {
 
         <CardSection>
           <Button onPress={this.onTextPress.bind(this)}>
-            Новая кнопка
+            Информировать
           </Button>
         </CardSection>
 
