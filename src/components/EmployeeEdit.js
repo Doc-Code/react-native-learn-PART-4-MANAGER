@@ -10,13 +10,14 @@ class EmployeeEdit extends Component {
 _.each(this.props.employee, (value, prop) => {
   this.props.employeeUpdate({ prop, value });
 });
-  }
+}
 
 onButtonPress() {
   const { name, phone, shift } = this.props;
   // console.log(name, phone, shift);
   this.props.employeeSave({ name, phone, shift, uid: this.props.employee.uid });
 }
+
   render() {
     return (
       <Card>
@@ -38,6 +39,5 @@ return { name, phone, shift };
 };
 
 export default connect(mapStateToProps, {
-  employeeUpdate,
-  employeeSave
+  employeeUpdate, employeeSave
 })(EmployeeEdit);

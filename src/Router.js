@@ -31,8 +31,9 @@ const RouterComponent = () => {
           component={EmployeeCreate}
           title="Добавить нового"
         />
+        <Scene key="employeeEdit" component={EmployeeEdit} title="Редактировать" />
       </Scene>
-      <Scene key="employeeEdit" component={EmployeeEdit} title="Редактировать" />
+
 
     </Router>
 
